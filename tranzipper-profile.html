@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Driver Profile</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+
+        
+
+        .title {
+            display: block;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+
+        .profile-picture {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            object-position: 0px 0px;
+            border-radius: 40px;
+            border: 1px solid #ddd;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 2px 10px 0 rgba(2, 55, 14, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pro-pic-div {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .tripchats-unread {
+            width: 310px;
+            background-color: #174e1b;
+            border-radius: 7px 7px 0px 0px;
+            display: block;
+            font-size: 14px;
+            margin: 0 auto;
+            color: white;
+            padding-bottom: 20px;
+            padding-top: 10px;
+        }
+
+
+
+        .checked,
+        .unchecked {
+            color: orange;
+            padding-bottom: 20px;
+        }
+
+        audio {
+            width: 100px;
+            height: 30px;
+        }
+
+        .top-info {
+            line-height: 10px;
+        }
+
+        .voice-text {
+            font-size: 10px;
+            color: rgb(255, 255, 255);
+        }
+
+        .rating-page, .about-div {
+            display: block;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .about-div p {
+            margin-top: 0;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+
+        .rating>input {
+            display: none;
+        }
+
+        .rating>label {
+            position: relative;
+            width: 1.1em;
+            font-size: 30px;
+            color: orange;
+            cursor: pointer;
+        }
+
+        .rating>label::before {
+            content: "\2605";
+            position: absolute;
+            opacity: 0;
+            -webkit-text-stroke: 2px rgb(234, 152, 0);
+        }
+
+        .rating>label:hover:before,
+        .rating>label:hover~label:before {
+            opacity: 1 !important;
+        }
+
+        .rating>input:checked~label:before {
+            opacity: 1;
+        }
+
+        .rating:hover>input:checked~label:before {
+            opacity: 0.4;
+        }
+
+        .rateme {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            padding-top: 0;
+        }
+
+        .review-submit {
+            vertical-align: top;
+            background-color: #174e1b;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .review-submit:hover {
+            background-color: rgb(2, 66, 2);
+        }
+
+        .review-submit:active {
+            opacity: 0.7;
+        }
+
+        .text.div-input {
+            width: 300px;
+        }
+
+        .text-area {
+            border-radius: 5px;
+            width: 310px;
+            margin-left: 0px;
+            height: 100px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .customers-review {
+            margin-top: 0;
+        }
+
+        .customers-name {
+            margin-top: 0;
+        }
+
+        .review-div {
+            margin-top: 10px;
+            border-top: 0.5px solid rgb(118, 117, 117);
+        }
+
+        .rating-stars {
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        .overview-text {
+width: 270px;        }
+    .note-icon {
+    width: 20px;
+    margin-top: 5px;
+  }
+
+  .overview-sub {
+    margin-bottom: 10px;
+  }
+
+  button {
+            background-color: #ffffff;
+            color: #174e1b;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 24px auto;
+            display: inline;
+            width: 100px;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 10px;
+
+            height: 30px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #174e1b;
+        }
+
+        button:active {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="head-page">
+            <div class="head-page">
+                <a href="tranzippers-near-you.html">
+                    <div class="back-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            width="29" viewBox="0 0 256 256" xml:space="preserve">
+
+                            <defs>
+                            </defs>
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                                transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                <path
+                                    d="M 45 0 c 24.813 0 45 20.187 45 45 c 0 24.813 -20.187 45 -45 45 C 20.186 90 0 69.813 0 45 C 0 20.187 20.186 0 45 0 z M 51.263 73.4 l 8.6 -8.6 L 40.064 45 l 19.799 -19.799 l -8.6 -8.6 L 22.864 45 L 51.263 73.4 z"
+                                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #174e1b; fill-rule: nonzero; opacity: 1;"
+                                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </svg>
+                </a>
+            </div>
+            <h1>
+                TranZipper's Profile
+            </h1>
+        </div>
+    </div>
+    <div class="main-page">
+        <div class="tripchats-unread">
+            <div class="tripchat1">
+                <div class="pro-pic-div">
+                    <img class="profile-picture" src="drivers-pic.png">
+                </div>
+
+                <div class="top-info">
+                    <div class="profile-name-info">
+                        <h3>
+                            Rasaq Sodiq
+                        </h3>
+                    </div>
+
+                    <div class="rating-stars">
+                        <span
+                            style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    </div>
+
+                    <button>
+                        Connect
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="about-div">
+            <h2>
+                About TranZipper
+            </h2>
+            <p>
+                I am very skilled at making things decent, I am very hardworking
+            </p>
+
+            <h2>
+                Overview
+            </h2>
+            <div class="overview-sub">
+        <div class="overview-icon">
+            <img class="note-icon" src="location-svgrepo-com.png" alt="Location">
+        </div>
+        <div class="overview-text">
+            Itamaga Roundabout, Ikorodu
+        </div>
+    </div>
+
+    <div class="overview-sub">
+        <div class="overview-icon">
+            <img class="note-icon" src="employee-job-position-svgrepo-com.png" alt="Jobs">  
+        </div>
+        <div class="overview-text">
+            Indoor car washing, Car engine washing, Full car washing
+        </div>
+    </div>
+
+    <div class="overview-sub">
+        <div class="overview-icon">
+            <img class="note-icon" src="tools-svgrepo-com.png" alt="Tools">
+        </div>
+        <div class="overview-text">
+            Water pressure, Dryer, Vacuum cleaner
+        </div>
+    </div>
+
+    <div class="overview-sub">
+        <div class="overview-icon">
+            <img class="note-icon" src="vehicle-wheel.png" alt="Tools">
+        </div>
+        <div class="overview-text">
+            Bike
+        </div>
+    </div>
+
+    <a href="#"> See photos of my tools</a>
+
+        </div>
+
+        <div class="rating-page">
+            
+            <div>
+                <div>
+                    <h2>
+                        Customers Feedback
+                    </h2>
+                    <div class="review-div">
+                        <div class="rating-stars">
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        </div>
+
+                        <p class="customers-review">
+                            He did a great job washing my car.
+                        </p>
+                        <p class="customers-name">
+                            &#45;Gideon Adenuga
+                        </p>
+                    </div>
+
+                    <div class="review-div">
+                        <div class="rating-stars">
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        </div>
+
+                        <p class="customers-review">
+                            He is goo at what he is doing
+                        </p>
+                        <p class="customers-name">
+                            &#45;Isreal Johnson
+                        </p>
+                    </div>
+
+                    <div class="review-div">
+                        <div class="rating-stars">
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        </div>
+
+                        <p class="customers-review">
+                            I never regret using this app. What a ease.
+                        </p>
+                        <p class="customers-name">
+                            &#45;Racheal Samson
+                        </p>
+                    </div>
+
+                    <div class="review-div">
+                        <div class="rating-stars">
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                            <span
+                                style="font-size:14px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        </div>
+
+                        <p class="customers-review">
+                            I recomend this guy for engine washing... My engine was so neat.
+                        </p>
+                        <p class="customers-name">
+                            &#45;Ruth Demola
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- partial:index.partial.html -->
+    <!-- partial:index.partial.html -->
+    <nav class="navigation-tab">
+        <a href="homepage.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="home.png" alt="Home" style="margin: 0 auto;">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Home</span>
+            </div>
+        </a>
+
+        <a href="user-requests.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="phone-call.png" alt="Requests">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Requests</span>
+            </div>
+        </a>
+
+        <a href="wallet.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="suitcase.png" alt="Wallet">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Wallet</span>
+            </div>
+        </a>
+
+        <a href="your-profile.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="user.png" alt="Profile">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Account</span>
+            </div>
+        </a>
+        <div class="navigation-tab-overlay"></div>
+    </nav>
+    <!-- partial -->
+    </span>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+        .profile-pic {
+            width: 40px;
+            border-radius: 20px;
+            vertical-align: middle;
+
+        }
+
+
+        .profile-pic-div {
+            width: 42px;
+            display: inline-flex;
+            border: 1px solid white;
+            border-radius: 21px;
+        }
+
+        .profile-pic-div:hover {
+            border: 0.5px solid #8daf9032;
+        }
+
+        .head-text {
+            display: inline-flex;
+            margin-left: 5px;
+            font-size: 18px;
+        }
+
+
+        .search {
+            margin-bottom: 20px;
+        }
+
+        .input {
+            width: 100%;
+            height: 34px;
+            line-height: 28px;
+            padding: 0 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f3f3f4;
+            color: #000;
+            transition: .3s ease;
+        }
+
+        .input::placeholder {
+            color: #9e9ea7;
+        }
+
+        .input:focus,
+        input:hover {
+            outline: none;
+            background-color: #fff;
+            border-width: 1px;
+        }
+
+        .search-icon {
+            position: absolute;
+            fill: #626262;
+            width: 30px;
+            padding-left: 10px;
+            padding-top: 15px;
+        }
+
+
+
+        .navigation-tab___icon {
+            cursor: pointer;
+        }
+
+        a {
+            text-align: justify;
+            color: #051306;
+        }
+
+        .column {
+            float: left;
+            width: 190px;
+        }
+
+        .column2 {
+            float: left;
+            width: 120px;
+            text-align: left;
+        }
+
+
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .image-size {
+            width: 40px;
+        }
+
+        .refer {
+            width: 310px;
+            height: 160px;
+            background-color: #417945;
+            border-radius: 7px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+
+
+        .drivers-pic {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            object-position: 0px 0px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0 rgba(2, 55, 14, 0.1);
+            display: block;
+        }
+
+        .profile-voice {
+            width: 100px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            margin-top: 80px;
+            display: block;
+        }
+
+        .profile-info {
+            display: inline-block;
+            width: 130px;
+            vertical-align: top;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .profile-picture {
+            display: block;
+            font-size: 14px;
+        }
+
+        .location-icon {
+            width: 9px;
+            height: 12px;
+        }
+
+
+        .location-icon-div {
+            display: inline-block;
+            font-size: 12px;
+            color: #051306;
+
+        }
+
+        .rating-star {
+            margin-top: 0;
+        }
+
+
+
+        .see-profile {
+            display: block;
+            color: #174e1b;
+            font-weight: 500;
+            font-size: 15px;
+            margin-top: 0px;
+        }
+
+        .see-profile:hover {
+            color: white;
+        }
+
+        .name {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+            color: #000;
+        }
+
+        .profile-name {
+            padding-bottom: 5px;
+            font-size: 12px;
+            text-align: left;
+            color: #051306;
+        }
+
+        .greet-img {
+            width: 110px;
+            padding-top: 10px;
+            margin-left: 5px;
+
+        }
+
+        .profile-text {
+            width: 190px;
+            height: 60px;
+            padding-left: 12px;
+            padding-top: 10px;
+        }
+
+
+        button {
+            background-color: #fff;
+            color: #174e1b;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 24px auto;
+            display: inline-flex;
+
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 24px;
+            gap: 10px;
+
+            width: 134px;
+            height: 35px;
+            margin-left: 12px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #174e1b;
+        }
+
+        button:active {
+            opacity: 0.7;
+        }
+
+        .image-icon {
+            width: 135px;
+            position: relative;
+            border-radius: 6px 6px 0px 0px;
+            cursor: pointer;
+        }
+
+        .shortcut-div button {
+            margin-left: 0;
+            margin-top: 0;
+            border-radius: 0px 0px 6px 6px;
+            width: 145px;
+            margin-bottom: 0;
+        }
+
+        .image-icon-div {
+            background-color: #fff;
+            border-radius: 6px;
+            width: 135px;
+            height: 113px;
+        }
+
+        .shortcut {
+            display: inline-flex;
+            margin: 0 0px;
+        }
+
+        .shortcut-div {
+            font-size: 10px;
+            margin: 0 auto;
+            width: 310px;
+        }
+
+        .icon-des {
+            width: 145px;
+            text-align: center;
+            font-size: 14px;
+            color: #174e1b;
+            border-radius: 6px;
+        }
+
+        .icon-left {
+            margin-right: 20px;
+        }
+
+        .icon {
+            margin-bottom: 20px;
+            background-color: #fff;
+            width: 145px;
+            cursor: pointer;
+            border-radius: 6px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+        .icon:active {
+            opacity: 0.7;
+        }
+
+        .iconimg {
+            width: 145px;
+            position: relative;
+            border-radius: 6px 6px 0px 0px;
+            cursor: pointer;
+        }
+
+        .icon-parent {
+            margin-bottom: 0px;
+        }
+
+        .greeting-text {
+            display: inline-flex;
+            margin-left: 5px;
+        }
+
+        .greeting {
+            margin-bottom: 20px;
+        }
+
+
+
+        .notification {
+  width: unset;
+  height: unset;
+  display: inline;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #417945;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: .2s;
+  margin-bottom: 0;
+  margin-left: 70px;
+}
+
+.bell {
+  width: 13px;
+  vertical-align: middle;
+}
+
+.bell path {
+  fill: #fff;
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  font-size: 18px;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification:hover {
+  transition-duration: .2s;
+  background-color: #395c3b;
+  font-weight: 700;
+  color: #fff;
+  font-size: 15;
+}
+
+.notification:hover .arrow {
+  animation: slide-right .6s ease-out both;
+  font-weight: 500;
+}
+/* arrow animation */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification:active {
+  transform: translate(1px , 1px);
+  transition-duration: .2s;
+}
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="head-text">
+            <div class="greeting">
+                <div class="profile-pic-div">
+                    <a href="your-profile.html"><img class="profile-pic" src="profile-pic.png"></a>
+                </div>
+                <div class="greeting-text">
+                    <div class="head-text">
+                        <p>
+                            Hello John
+                        </p>
+                    </div>
+                </div>
+
+                <button class="notification">
+                  <svg class="bell" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path></svg>
+                 100
+                 <div class="arrow">›</div>
+               </button>
+               
+            </div>
+
+        </div>
+        <div class="refer">
+            <div class="row">
+                <div class="column">
+                    <p class="profile-text">
+                        Create your tasks and find trusted background-checked help around you.
+                    </p>
+                    <button>
+                        Refer a friend
+                    </button>
+                </div>
+                <div class="column2">
+                    <img class="greet-img" src="greeting-img.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="head-text">
+            <p>
+                Choose tasks to set up
+            </p>
+        </div>
+
+        <div class="shortcut-div">
+            <div class="shortcut">
+
+                <div class="icon-left">
+                    <a href="body-care.html">
+                        <div class="icon">
+                            <img class="iconimg" src="body-maintenance.jpg" alt="Edit Profile Voice">
+                            <div class="icon-des">
+                                Body Care
+                            </div>
+                        </div>
+                </div>
+                </a>
+
+
+
+
+
+                <div>
+                    <div class="icon">
+                        <a href="event.html">
+                            <img class="iconimg" src="event.jpg" alt="">
+                            <div class="icon-des">
+                                Event/Party
+                            </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+
+
+
+
+
+            <div class="shortcut">
+
+                <div class="icon-left">
+                    <a href="location-info.html">
+                        <div class="icon">
+                            <img class="iconimg" src="car-washing.jpg" alt="Edit Profile Voice">
+                            <div class="icon-des">
+                                Car Wash
+                            </div>
+                        </div>
+                </div>
+                </a>
+
+
+
+
+
+                <div>
+                    <div class="icon">
+                        <a href="buka.html">
+                            <img class="iconimg" src="buka.png" alt="">
+                            <div class="icon-des">
+                                Buka/Restaurant                            </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <hr>
+
+            <div class="head-text">
+                <p>
+                    Call for services near you
+                </p>
+            </div>
+
+
+
+
+            <div class="shortcut">
+
+                <div class="icon-left">
+                    <a href="errand-delivery.html">
+                        <div class="icon">
+                            <img class="iconimg" src="delivery.jpg" alt="Edit Profile Voice">
+                            <div class="icon-des">
+                                Errand/Delivery
+                            </div>
+                        </div>
+                </div>
+                </a>
+
+
+
+
+
+                <div>
+                    <div class="icon">
+                        <a href="home-management.html">
+                            <img class="iconimg" src="home-management.jpg" alt="">
+                            <div class="icon-des">
+                                Home Management
+                            </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+
+
+
+            <div class="shortcut">
+
+                <div class="icon-left">
+                    <a href="emergency.html">
+                        <div class="icon">
+                            <img class="iconimg" src="emergency.jpg" alt="Edit Profile Voice">
+                            <div class="icon-des">
+                                Emergency
+                            </div>
+                        </div>
+                </div>
+                </a>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- partial:index.partial.html -->
+    <!-- partial:index.partial.html -->
+    <nav class="navigation-tab">
+        <a href="homepage.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="home.png" alt="Home" style="margin: 0 auto;">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Home</span>
+            </div>
+        </a>
+
+        <a href="user-requests.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="phone-call.png" alt="Requests">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Requests</span>
+            </div>
+        </a>
+
+        <a href="wallet.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="suitcase.png" alt="Wallet">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Wallet</span>
+            </div>
+        </a>
+
+        <a href="your-profile.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="user.png" alt="Profile">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Account</span>
+            </div>
+        </a>
+        <div class="navigation-tab-overlay"></div>
+    </nav>
+    <!-- partial -->
+    </span>
+
+
+
+    <script>
+        function changeIcon(anchor) {
+            var icon = anchor.querySelector("i");
+            icon.classList.toggle('bx-show');
+            icon.classList.toggle('bx-hide');
+            anchor.querySelector("span").textContent = icon.matches('.bx-hide') ? "************" : anchor.querySelector("span").dataset.text;
+        }
+    </script>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

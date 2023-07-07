@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+        .summary-div {
+            width: 310px;
+            background-color: rgba(0, 0, 0, 0.10);
+            border-radius: 7px;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 auto 10px auto;
+        }
+
+        .trip-reason {
+            font-size: 14px;
+        }
+
+        .trip-cost {
+            display: inline;
+            float: right;
+            line-height: 3px;
+        }
+
+        .head-fees {
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .head-cost {
+            display: inline-block;
+        }
+
+        .total-cost {
+            font-size: 25px;
+            font-weight: 500;
+            float: right;
+            display: block;
+            margin-right: 20px;
+        }
+
+        .trip-tatal-cost {
+            font-size: 20px;
+        }
+
+        .wallet {
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        select {
+            background-color: rgba(0, 0, 0, 0.10);
+            border-radius: 5px;
+            font-weight: 400;
+            color: #051306;
+        }
+
+        button {
+            background-color: rgb(4, 80, 4);
+            box-shadow: #1a4b02 4px 4px 0px;
+            border-radius: 4px;
+            padding: 15px 90px;
+            margin-top: 10px;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: uppercase;
+            min-width: 120px;
+            transition: transform 200ms, box-shadow 200ms;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: translateY(4px) translateX(4px);
+            box-shadow: #094c66 0px 0px 0px;
+        }
+
+        .warning {
+            text-align: center;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        .warning-note {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .warning-words {
+            font-size: 12px;
+            color: crimson;
+            margin-top: 2px;
+            font-weight: 100;
+            padding: 0 0 10px;
+            width: 310px;
+            font-weight: 400;
+
+        }
+
+        hr {
+            border-color: #c8cdc5;
+        }
+
+        .warning-div {
+            width: 330px;
+            margin: 0px auto;
+        }
+
+        .topic {
+            line-height: 3px;
+            display: inline;
+        }
+
+        .subtopic {
+            font-weight: 350;
+            line-height: 3px;
+        }
+
+        .head-text {
+            display: inline-block;
+        }
+
+        .payment-info {
+            padding-right: 10px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 5px 0;
+            border-radius: 5px;
+            width: 50%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+
+        @media screen and (max-width: 700px) {
+            .box {
+                width: 70%;
+            }
+
+            .popup {
+                width: 70%;
+            }
+        }
+
+        .pin {
+            width: 60px;
+            height: 30px;
+            font-size: 16px;
+            margin-left: 35%;
+            padding-left: 20px;
+        }
+
+        .six-digit {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-weight: 500;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+
+
+        .keypad-digit {
+            width: 250px;
+            margin: 0px auto 0;
+            background: #174e1b;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0px 5px 5px -0px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .overlay input[type="password"] {
+            padding: 0 40px;
+            border-radius: 5px;
+            width: 140px;
+            height: 50px;
+            margin: auto;
+            margin-bottom: 20px;
+            border: 1px solid rgb(228, 220, 220);
+            outline: none;
+            font-size: 21px;
+            color: transparent;
+            text-shadow: 0 0 0 rgb(84, 84, 84);
+            text-align: center;
+        }
+
+        .overlay input,
+        select::placeholder {
+            padding: 0;
+        }
+
+        .overlay input:focus {
+            outline: none;
+        }
+
+        .pinButton {
+            border: none;
+            background: none;
+            font-size: 14px;
+            border-radius: 50%;
+            height: 30px;
+            font-weight: 550;
+            width: 30px;
+            color: transparent;
+            text-shadow: 0 0 0 rgb(255, 255, 255);
+            margin: 7px 20px;
+        }
+
+        .clear,
+        .enter {
+            font-size: 10px !important;
+        }
+
+        .pinButton:hover {
+            box-shadow: #506ce8 0 0 1px 1px;
+        }
+
+        .pinButton:active {
+            background: #506ce8;
+            color: #fff;
+        }
+
+        .clear:hover {
+            box-shadow: #ff3c41 0 0 1px 1px;
+        }
+
+        .clear:active {
+            background: #ff3c41;
+            color: #fff;
+        }
+
+        .enter:hover {
+            box-shadow: #47cf73 0 0 1px 1px;
+        }
+
+        .enter:active {
+            background: #47cf73;
+            color: #fff;
+        }
+
+        .overlay p,
+        .overlay a {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: none;
+            background-color: none;
+            box-shadow: none;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="head-page">
+
+            <div class="head-text">
+                <h1>
+                    Authorize Transaction
+                </h1>
+                <p>
+                    Service payment
+                </p>
+            </div>
+
+            <div>
+            <div class="summary-div">
+
+
+                <div class="payment-info">
+                    <p class="topic">
+                        Name
+                    </p>
+                    <p class="trip-cost">
+                        Rasaq Sodiq
+                    </p>
+                </div>
+
+                <hr>
+
+                <div class="payment-info">
+                    <p class="topic">
+                        ZipperTag
+                    </p>
+                    <p class="trip-cost">
+                        #22381
+                    </p>
+                </div>
+
+                <hr>
+
+                <div class="payment-info">
+                    <p class="topic">
+                        Transaction
+                    </p>
+                    <p class="trip-cost">
+                        Transfer
+                    </p>
+                </div>
+
+                <hr>
+
+                <div class="payment-info">
+                    <p class="topic">
+                        Amount
+                    </p>
+                    <p class="trip-cost">
+                        4,000.00 NGN
+                    </p>
+                </div>
+                <hr>
+
+                <div class="payment-info">
+                    <p class="topic">
+                        Commission
+                    </p>
+                    <p class="trip-cost">
+                        50.00 NGN
+                    </p>
+                </div>
+                <hr>
+
+                <div class="payment-info">
+                    <p class="topic">
+                        Total
+                    </p>
+                    <p class="trip-cost">
+                        4,050.00 NGN
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="wallet">
+            <label for="wallet">From TranZipper Wallet</label>
+            <select id="wallet">
+                <option value="accout">Select your wallet</option>
+                <option value="accout">6,582.00 NGN</option>
+            </select>
+        </div>
+        <div class="warning-div">
+            <p class="warning-words">
+                <span class="warning-note">Note:</span> Pay securely with the TranZipper Cash Wallet only. Do not hand
+                over cash to anyone offline. Only make payment online.
+            </p>
+
+        </div>
+        <div>
+
+            <a href="#popup1"><button>
+                    PAY NOW
+                </button>
+            </a>
+
+
+
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+
+
+
+
+
+                <div id="pinpad">
+                    <form class="keypad-digit" action="payment-successful.html">
+                        <p>
+                            Enter your 4 digit PIN
+                        </p>
+                        <input type="password" id="password" /></br>
+                        <input type="button" value="1" id="1" class="pinButton calc" />
+                        <input type="button" value="2" id="2" class="pinButton calc" />
+                        <input type="button" value="3" id="3" class="pinButton calc" /><br>
+                        <input type="button" value="4" id="4" class="pinButton calc" />
+                        <input type="button" value="5" id="5" class="pinButton calc" />
+                        <input type="button" value="6" id="6" class="pinButton calc" /><br>
+                        <input type="button" value="7" id="7" class="pinButton calc" />
+                        <input type="button" value="8" id="8" class="pinButton calc" />
+                        <input type="button" value="9" id="9" class="pinButton calc" /><br>
+                        <input type="button" value="clear" id="clear" class="pinButton clear" />
+                        <input type="button" value="0" id="0 " class="pinButton calc" />
+                        <a href="payment-successful.html"><input type="button" value="enter" id="enter"
+                                class="pinButton enter" /></a>
+                        <a href="#">Forgot PIN?</a>
+                    </form>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                <script src="./js/app.js"></script>
+                <script type="text/javascript">
+
+                    var _gaq = _gaq || [];
+                    _gaq.push(['_setAccount', 'UA-36251023-1']);
+                    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                    _gaq.push(['_trackPageview']);
+
+                    (function () {
+                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                    })();
+
+                </script>
+                <script>
+                    try {
+                        fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function (response) {
+                            return true;
+                        }).catch(function (e) {
+                            var carbonScript = document.createElement("script");
+                            carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+                            carbonScript.id = "_carbonads_js";
+                            document.getElementById("carbon-block").appendChild(carbonScript);
+                        });
+                    } catch (error) {
+                        console.log(error);
+                    }
+                    $(document).ready(function () {
+                        const input_value = $("#password");
+
+                        //disable input from typing
+
+                        $("#password").keypress(function () {
+                            return false;
+                        });
+
+                        //add password
+                        $(".calc").click(function () {
+                            let value = $(this).val();
+                            field(value);
+                        });
+                        function field(value) {
+                            input_value.val(input_value.val() + value);
+                        }
+                        $("#clear").click(function () {
+                            input_value.val("");
+                        });
+                        $("#enter").click(function () {
+                            alert("Success!");
+                        });
+                    });
+
+
+
+
+                </script>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

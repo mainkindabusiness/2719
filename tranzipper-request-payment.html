@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+        hr {
+            border-color: #a7a7a95d;
+            border-width: 0.4px;
+        }
+
+
+        .option {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .top-option {
+            margin-right: 10px;
+            margin-top: 0;
+            display: inline;
+        }
+
+
+        .request-card {
+            width: 310px;
+            transition: all .5s;
+            overflow: hidden;
+            border-radius: 2px;
+            margin: 0 auto 2px;
+            background: rgb(2, 40, 20);
+            color: #fff;
+        }
+
+
+
+
+        .title {
+            font-size: 14px;
+            transition: all 0.4s;
+            text-align: left;
+            margin-left: 10px;
+            margin-right: 15px;
+        }
+
+
+
+        .main-page {
+            font-size: 14px;
+            width: 310px;
+            margin: 10px auto;
+            text-align: left;
+        }
+
+
+
+
+
+        button {
+            background-color: #174e1b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 24px auto;
+            display: inline;
+            width: unset;
+            padding: 5px 10px;
+            font-size: 12px;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            height: unset;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #174e1b;
+        }
+
+        button:active {
+            opacity: 0.7;
+        }
+
+        .column2 p {
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .call-tsk {
+            background-color: #59a33f;
+        }
+
+        .chat-tsk {
+            background-color: #fff;
+            color: #174e1b;
+        }
+
+        .cancel-tsk {
+            background-color: #9a3c41;
+        }
+
+        p {
+            display: inline;
+        }
+
+        .title-div {
+            margin-top: 10px;
+        }
+
+        .job {
+            background-color: white;
+            color: #174e1b;
+            border-radius: 7px;
+            font-size: 12px;
+            padding: 2px;
+        }
+
+        .time {
+            display: inline;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .review-tsk {
+            background-color: goldenrod;
+        }
+
+        .top-button {
+            margin-left: 10px;
+        }
+
+
+
+
+
+
+        #popup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        #popup:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-card {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            width: 310px;
+
+        }
+
+        .popup-card-content {
+            text-align: center;
+            width: 285px;
+            margin: 0 auto;
+
+        }
+
+        .close {
+            position: absolute;
+            top: -5%;
+            right: 5%;
+        }
+
+
+
+
+        .card {
+            overflow: hidden;
+            text-align: left;
+            border-radius: 0.5rem;
+            max-width: 290px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background-color: #fff;
+        }
+
+        .dismiss {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: black;
+            border: 2px solid #D1D5DB;
+            font-size: 1rem;
+            font-weight: 300;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            transition: .3s ease;
+        }
+
+        .dismiss:hover {
+            background-color: #ee0d0d;
+            border: 2px solid #ee0d0d;
+            color: #fff;
+        }
+
+        .header {
+            padding: 1.25rem 1rem 1rem 1rem;
+        }
+
+        .image {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #e2feee;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            animation: animate .6s linear alternate-reverse infinite;
+            transition: .6s ease;
+        }
+
+        .image svg {
+            color: #0afa2a;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .content {
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+
+
+        .message {
+            margin-top: 0.5rem;
+            color: #595b5f;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+
+        .actions {
+            margin: 0.75rem 1rem;
+        }
+
+        .history {
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            background-color: #1aa06d;
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+            justify-content: center;
+            width: 100%;
+            border-radius: 0.375rem;
+            border: none;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 0;
+        }
+
+        .track {
+            display: inline-flex;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            color: #242525;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+            justify-content: center;
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #D1D5DB;
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        @keyframes animate {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.09);
+            }
+        }
+
+
+.sign {
+  width: 50px;
+}
+
+.fields {
+  margin: 0 10px 0 0;
+}
+
+.fields:before {
+  content: "₦";
+  text-align: center;
+  position: relative;
+  left: 35px;
+}
+
+input {
+  border-radius: 5px;
+  margin: 15px;
+  padding: 10px 10px 10px 20px;
+  width: unset;
+  height: unset;
+  color: black;
+
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="main-page">
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        John
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            9:30 am
+                        </p>
+                    </div>
+
+                    <div class="top-button">
+
+                        <i>waiting...</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="call-tsk">
+                            Accept
+                        </button>
+                    </div>
+
+                    <div class="option">
+                        <button class="cancel-tsk">
+                            Decline
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        James
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            8:32 am
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+                        <div class="top-option">
+                            <a href="requests.html">
+                               <button>
+                                    Job done
+                                </button>
+                            </a>
+                            
+                            <a href="#popup">
+                            <button>
+                                Request Payment
+                            </button>
+                        </a>
+                        </div>
+                        <i>Accepted</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="call-tsk">
+                            Call
+                        </button>
+                    </div>
+                    <div class="option">
+                        <button class="chat-tsk">
+                            Chat
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+
+
+
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        Kali
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            08:40 am
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+
+                        <div class="top-option">
+                            <p>
+                                &#10008;
+                            </p>
+                        </div>
+                        <i>Canceled</i>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        Layefa
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            8:09 am
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+
+                        <div class="top-option">
+                            <p>
+                                &check;
+                            </p>
+                        </div>
+                        <i>Job done</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="review-tsk">
+                            Request a review
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        Damilola
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            Yesterday
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+
+                        <div class="top-option">
+                            <p>
+                                &check;
+                            </p>
+                        </div>
+                        <i>Job done</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="review-tsk">
+                            Request a review
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        Linda
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            16/06/2023
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+
+                        <div class="top-option">
+                            <p>
+                                &check;
+                            </p>
+                        </div>
+                        <i>Job done</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="review-tsk">
+                            Request a review
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div class="request-card">
+                <div class="title-div">
+                    <p class="title">
+                        Moturayo
+                    </p>
+                    <p class="job">
+                        Customer
+                    </p>
+                    <div class="time">
+                        <p>
+                            16/06/2023
+                        </p>
+                    </div>
+                    <div class="top-button">
+
+
+                        <div class="top-option">
+                            <p>
+                                &check;
+                            </p>
+                        </div>
+                        <i>Job done</i>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div>
+                    <div class="option">
+                        <button class="review-tsk">
+                            Request a review
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <div id="popup">
+        <div class="popup-card">
+          <div class="popup-card-content">
+            <a class="close" href="#"><button class="dismiss" type="button">×</button> 
+  </a>
+            
+            
+            <div class="card"> 
+              <div class="header"> 
+                <div class="image">
+  <img class="sign" src="naira-sign.png" alt="">
+                  </div> 
+                  <div class="content">
+  
+                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <form id="rev-calculator">
+    <label for="price">Input amount</label>
+    <div class="fields">
+      <input type="text" pattern="[0-9.,]+" name="price" id="price" required data-type="number" />
+      <br>
+  </form>
+  
+  <script>
+    $('#price').keydown(function(e) {
+    setTimeout(() => {
+      let parts = $(this).val().split(".");
+      let v = parts[0].replace(/\D/g, ""),
+        dec = parts[1]
+      let calc_num = Number((dec !== undefined ? v + "." + dec : v));
+      // use this for numeric calculations
+      // console.log('number for calculations: ', calc_num);
+      let n = new Intl.NumberFormat('en-EN').format(v);
+      n = dec !== undefined ? n + "." + dec : n;
+      $(this).val(n);
+    })
+  })
+  </script>
+                     </div> 
+                     <div class="actions">
+                        <button class="history" type="button">Request payment</button> 
+                        </div> 
+                        </div> 
+                        </div>
+  
+  
+  
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- partial:index.partial.html -->
+    <!-- partial:index.partial.html -->
+    <nav class="navigation-tab">
+        <a href="tranzipper-homepage.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="home.png" alt="Home" style="margin: 0 auto;">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Home</span>
+            </div>
+        </a>
+
+        <a href="tranzipper-requests.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="phone-call.png" alt="Requests">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Requests</span>
+            </div>
+        </a>
+
+        <a href="tranzipper-wallet.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="suitcase.png" alt="Wallet">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Wallet</span>
+            </div>
+        </a>
+
+        <a href="tranzipper-account.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="user.png" alt="Profile">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Account</span>
+            </div>
+        </a>
+        <div class="navigation-tab-overlay"></div>
+    </nav>
+    <!-- partial -->
+    </span>
+
+
+
+
+    <script>
+        function changeIcon(anchor) {
+            var icon = anchor.querySelector("i");
+            icon.classList.toggle('bx-show');
+            icon.classList.toggle('bx-hide');
+            anchor.querySelector("span").textContent = icon.matches('.bx-hide') ? "************" : anchor.querySelector("span").dataset.text;
+        }
+    </script>
+
+
+
+    </div>
+</body>
+
+</html>

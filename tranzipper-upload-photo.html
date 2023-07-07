@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload</title>
+  <link rel="website icon" type="png" href="TranZipper Logo.png">
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="build/css/intlTelInput.css">
+  <link rel="stylesheet" href="build/css/demo.css">
+  <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+
+
+    .drop-zone {
+      max-width: 150px;
+      height: 150px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: "Quicksand", sans-serif;
+      cursor: pointer;
+      border: 1px solid #174e1b;
+      border-radius: 75px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #174e1b;
+      margin: 10px auto 30px;
+      
+    }
+
+    .drop-zone:hover {
+      background-color: #174e1b;
+      color: #ffffff;
+    }
+
+    .drop-zone--over {
+      border-style: solid;
+    }
+
+    .drop-zone__input {
+      display: none;
+    }
+
+    .drop-zone__thumb {
+      width: 100%;
+      height: 100%;
+      border-radius: 75px;
+      overflow: hidden;
+      background-color: #cccccc;
+      background-size: cover;
+      position: relative;
+    }
+
+    .drop-zone__thumb::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px 0;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.75);
+      font-size: 5px;
+      text-align: center;
+    }
+
+    .sample-image-horizontal {
+      width: 200px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
+    }
+
+    .sample-image-vertical {
+      width: 140px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
+    }
+
+    .sample {
+      margin: 0 auto 20px;
+      width: 230px;
+      border-width: 0px 1px 1px 1px;
+      border-color: #174e1b14;
+      border-style: solid;
+      text-align: center;
+    }
+
+    .approve-icon {
+      width: 17px;
+      vertical-align: -3px;
+    }
+
+    .note-icon {
+      width: 24px;
+      vertical-align: -8px;
+    }
+
+    .note {
+      text-align: justify;
+
+    }
+
+    .note-topic {
+      color: green;
+    }
+
+    .note-text {
+      margin-left: 2px;
+    }
+
+    button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profile-pic-sample {
+      width: 80px;
+      margin-left: 10px;
+    }
+    .profile-pic-sample-div{
+      margin: 0 auto;
+      display: flex;
+  justify-content: center;
+    }
+    .example-head {
+      text-align: center;
+    }
+    .bottom-instruction {
+  width: 300px;
+  text-align: left;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+      <img class="tranzipperlogo" src="tranzipper-logo.png">
+
+    <div class="main-page">
+
+      <h1>
+        Verify your information      
+      </h1>
+      <p class="head2">
+        Upload a clear picture of yourself
+      </p>
+
+        <p class="example-head">
+          Good example
+        </p>
+        <div class="profile-pic-sample-div">
+          <img class="profile-pic-sample" src="sample1.png" alt="">
+          <img class="profile-pic-sample" src="sample2.png" alt="">
+          <img class="profile-pic-sample" src="sample3.png" alt="">
+        </div>
+
+      <div class="note">
+        <p>
+          <span class="note-topic">Note:</span> A good photo will increase your chance of being hired.
+        </p>
+        <p>
+          <img class="note-icon" src="man-close-up-svgrepo-com.png"> <span
+            class="note-text">Take a headshot</span>
+        </p>
+        <p>
+          <img class="note-icon" src="lightbulb-svgrepo-com.png"> <span class="note-text">Make sure it is well lit</span>
+        </p>
+        <p>
+          <img class="note-icon" src="smile-svgrepo-com.png"> <span class="note-text">Smiling may help</span>
+        </p>
+        <p>
+          <img class="note-icon" src="delete-round-svgrepo-com.png"> <span class="note-text">Dont use sunglasses</span>
+        </p>
+      </div>
+
+      <p class="bottom-instruction">
+        There may be a delay in our account activation if your photo doesn’t meet up with the guidelines above
+      </p>
+      <a href="tranzipper-add-photo.html">
+      <button>
+        Add Profile Photo
+      </button>
+    </a>
+
+
+
+
+
+  </div>
+
+  </div>
+
+</body>
+<script>
+  
