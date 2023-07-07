@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TranZippers near you</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+        .drivers-profile {
+            width: 310px;
+            background-color: #fff;
+            border-radius: 7px;
+            margin: 0 auto;
+            padding-bottom: 0px;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .drivers-pic {
+            width: 105px;
+            height: 110px;
+            object-fit: cover;
+            object-position: 0px 0px;
+            border-radius: 7px 0 0 7px;
+            box-shadow: 1px 2px 10px 0 rgba(2, 55, 14, 0.1);
+            display: block;
+        }
+
+
+        .profile-info {
+            display: inline-block;
+            width: 130px;
+            vertical-align: top;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .profile-picture {
+            display: block;
+            font-size: 14px;
+        }
+
+        .location-icon {
+            width: 9px;
+            height: 12px;
+        }
+
+
+        .location-icon-div {
+            display: inline-block;
+            font-size: 12px;
+            color: #051306;
+
+        }
+
+        .rating-star {
+            margin-top: 0;
+        }
+
+
+
+        .see-profile {
+            display: inline;
+            color: #174e1b;
+            font-weight: 500;
+            font-size: 15px;
+            margin-top: 0px;
+        }
+
+
+
+        .name {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+            color: #000;
+        }
+
+        .profile-name {
+            font-size: 12px;
+            text-align: left;
+            color: #051306;
+        }
+
+
+
+        .column {
+            float: left;
+            width: 105px;
+        }
+
+        .column2 {
+            float: left;
+            width: 200px;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .image-size {
+            width: 40px;
+        }
+
+        button {
+            background-color: #174e1b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 24px auto;
+            display: inline;
+            width: 90px;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 10px;
+
+            height: 30px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #174e1b;
+        }
+
+        button:active {
+            opacity: 0.7;
+        }
+
+        .column2 p {
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        hr {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            width: 310px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="head-page">
+            <a href="buka-location-info.html">
+                <div class="back-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        width="29" viewBox="0 0 256 256" xml:space="preserve">
+
+                        <defs>
+                        </defs>
+                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                            <path
+                                d="M 45 0 c 24.813 0 45 20.187 45 45 c 0 24.813 -20.187 45 -45 45 C 20.186 90 0 69.813 0 45 C 0 20.187 20.186 0 45 0 z M 51.263 73.4 l 8.6 -8.6 L 40.064 45 l 19.799 -19.799 l -8.6 -8.6 L 22.864 45 L 51.263 73.4 z"
+                                style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #174e1b; fill-rule: nonzero; opacity: 1;"
+                                transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                        </g>
+                    </svg>
+            </a>
+        </div>
+        <h1>
+            TranZippers near you
+        </h1>
+        <p>
+            Click "see profile" to see more information
+        </p>
+    </div>
+    <div class="main-page">
+
+        <div class="drivers-profile">
+
+            <div class="row">
+                <div class="column">
+                    <img class="drivers-pic" src="buka-pic-1.png" alt="Driver Profile Picture">
+                </div>
+                <div class="column2">
+                    <p>
+                       Damilola Bukky
+                    </p>
+                    <div class="rating-star">
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    </div>
+                    <div class="location-icon-div">
+                        <img class="location-icon" src="car-parking-location.png">
+                        Itamaga Roundabout
+                    </div>
+                    <a href="buka-profile.html">
+                        <button>
+                            See profile
+                        </button>
+                    </a>
+
+                    <a href="guest-payment.html">
+                    <button>
+                        Call
+                    </button>
+                </a>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+
+
+        <div class="drivers-profile">
+
+            <div class="row">
+                <div class="column">
+                    <img class="drivers-pic" src="buka-pic-2.png" alt="Driver Profile Picture">
+                </div>
+                <div class="column2">
+                    <p>
+                        Chinedu Janet
+                    </p>
+                    <div class="rating-star">
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    </div>
+                    <div class="location-icon-div">
+                        <img class="location-icon" src="car-parking-location.png">
+                        Itamaga Roundabout
+                    </div>
+
+                    <button>
+                        See profile
+                    </button>
+                    <button>
+                        Call
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+
+
+        <div class="drivers-profile">
+
+            <div class="row">
+                <div class="column">
+                    <img class="drivers-pic" src="buka-pic-3.png" alt="Driver Profile Picture">
+                </div>
+                <div class="column2">
+                    <p>
+                        James Anita
+                    </p>
+                    <div class="rating-star">
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    </div>
+                    <div class="location-icon-div">
+                        <img class="location-icon" src="car-parking-location.png">
+                        Itamaga Roundabout
+                    </div>
+                    <button>
+                        See profile
+                    </button>
+                    <button>
+                        Call
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+
+
+        <div class="drivers-profile">
+
+            <div class="row">
+                <div class="column">
+                    <img class="drivers-pic" src="buka-pic-4.png" alt="Driver Profile Picture">
+                </div>
+                <div class="column2">
+                    <p>
+                       Babajide Adijat
+                    </p>
+                    <div class="rating-star">
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                        <span
+                            style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    </div>
+                    <div class="location-icon-div">
+                        <img class="location-icon" src="car-parking-location.png">
+                        Itamaga Roundabout
+                    </div>
+                    <button>
+                        See profile
+                    </button>
+                    <button>
+                        Call
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-5.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                    Balogun Kehinde
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Call
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-6.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                   Adeniyi Adenike
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Connect
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-7.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                    Nnamdi Ruth
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Connect
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-8.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                    Damilare Tominsi
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Connect
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-9.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                    Enoch Witney
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Connect
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+
+    <div class="drivers-profile">
+
+        <div class="row">
+            <div class="column">
+                <img class="drivers-pic" src="buka-pic-10.png" alt="Driver Profile Picture">
+            </div>
+            <div class="column2">
+                <p>
+                    Williams Racheal
+                </p>
+                <div class="rating-star">
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #fdb60d; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                    <span
+                        style="font-size:12px; color: #efdaa9; -webkit-text-stroke: 0.6px black; display: inline;">&bigstar;</span>
+                </div>
+                <div class="location-icon-div">
+                    <img class="location-icon" src="car-parking-location.png">
+                    Itamaga Roundabout
+                </div>
+                <button>
+                    See profile
+                </button>
+                <button>
+                    Connect
+                </button>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+
+    </div>
+
+
+
+
+        <!-- partial:index.partial.html -->
+    <!-- partial:index.partial.html -->
+    <nav class="navigation-tab">
+        <a href="user-homepage.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="home.png" alt="Home" style="margin: 0 auto;">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Home</span>
+            </div>
+        </a>
+
+        <a href="user-requests.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="phone-call.png" alt="Requests">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Requests</span>
+            </div>
+        </a>
+
+        <a href="user-wallet.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="suitcase.png" alt="Wallet">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Wallet</span>
+            </div>
+        </a>
+
+        <a href="user-profile.html">
+            <div class="navigation-tab-item active">
+                <span class="navigation-tab___icon">
+                    <img class="img-nav" src="user.png" alt="Profile">
+                </span>
+                <span class="navigation-tab___icon">
+                    <span class="navigation-tab_txt">Account</span>
+            </div>
+        </a>
+        <div class="navigation-tab-overlay"></div>
+    </nav>
+    <!-- partial -->
+    </span>
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
