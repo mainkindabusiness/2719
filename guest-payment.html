@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="website icon" type="png" href="tranzipper-logo.png">
+    <link href="css/tranzipper.css" rel="stylesheet" type="text/css">
+    <style>
+        .summary-div {
+            width: 310px;
+            background-color: rgba(0, 0, 0, 0.10);
+            border-radius: 7px;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 auto 10px auto;
+        }
+
+        .trip-reason {
+            font-size: 14px;
+        }
+
+        .trip-cost {
+            display: inline;
+            float: right;
+            line-height: 3px;
+        }
+
+        .head-fees {
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .head-cost {
+            display: inline-block;
+        }
+
+        .total-cost {
+            font-size: 25px;
+            font-weight: 500;
+            float: right;
+            display: block;
+        }
+
+        .trip-tatal-cost {
+            font-size: 20px;
+        }
+
+        .wallet {
+            text-align: left;
+            margin: 0 auto;
+        }
+
+
+        hr {
+            border-color: #c8cdc528;
+        }
+
+        .warning-div {
+            width: 330px;
+            margin: 0px auto;
+        }
+
+        .topic {
+            line-height: 3px;
+            display: inline;
+        }
+
+        .subtopic {
+            font-weight: 350;
+            line-height: 3px;
+        }
+
+
+        .payment-info {
+            padding: 6px 11px;
+            width: 290px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 5px 0;
+            border-radius: 5px;
+            width: 50%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+
+        @media screen and (max-width: 700px) {
+            .box {
+                width: 70%;
+            }
+
+            .popup {
+                width: 70%;
+            }
+        }
+
+        .pin {
+            width: 60px;
+            height: 30px;
+            font-size: 16px;
+            margin-left: 35%;
+            padding-left: 20px;
+        }
+
+        .six-digit {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-weight: 500;
+        }
+
+
+
+
+        .keypad-digit {
+            width: 250px;
+            margin: 0px auto 0;
+            background: #174e1b;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0px 5px 5px -0px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .overlay input[type="password"] {
+            padding: 0 40px;
+            border-radius: 5px;
+            width: 140px;
+            height: 50px;
+            margin: auto;
+            margin-bottom: 20px;
+            border: 1px solid rgb(228, 220, 220);
+            outline: none;
+            font-size: 21px;
+            color: transparent;
+            text-shadow: 0 0 0 rgb(84, 84, 84);
+            text-align: center;
+        }
+
+        .overlay input,
+        select::placeholder {
+            padding: 0;
+        }
+
+        .overlay input:focus {
+            outline: none;
+        }
+
+        .pinButton {
+            border: none;
+            background: none;
+            font-size: 14px;
+            border-radius: 50%;
+            height: 30px;
+            font-weight: 550;
+            width: 30px;
+            color: transparent;
+            text-shadow: 0 0 0 rgb(255, 255, 255);
+            margin: 7px 20px;
+        }
+
+        .clear,
+        .enter {
+            font-size: 10px !important;
+        }
+
+        .pinButton:hover {
+            box-shadow: #506ce8 0 0 1px 1px;
+        }
+
+        .pinButton:active {
+            background: #506ce8;
+            color: #fff;
+        }
+
+        .clear:hover {
+            box-shadow: #ff3c41 0 0 1px 1px;
+        }
+
+        .clear:active {
+            background: #ff3c41;
+            color: #fff;
+        }
+
+        .enter:hover {
+            box-shadow: #47cf73 0 0 1px 1px;
+        }
+
+        .enter:active {
+            background: #47cf73;
+            color: #fff;
+        }
+
+        .overlay p,
+        .overlay a {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: none;
+            background-color: none;
+            box-shadow: none;
+        }
+
+        label {
+            display: block;
+        }
+
+        .form-container {
+            display: grid;
+            grid-column-gap: 10px;
+            grid-template-columns: auto auto;
+            grid-template-rows: 90px 90px 90px;
+            grid-template-areas: "name name""number number""expiration security";
+            max-width: 400px;
+            padding: 20px;
+            color: #707070;
+        }
+
+        label {
+            padding-bottom: 0;
+            font-size: 13px;
+        }
+
+        input {
+            margin-top: 3px;
+            padding: 15px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #dcdcdc;
+        }
+        
+        .exp-code {
+            display: block;
+        }
+
+        input#expirationdate, input#securitycode {
+            width: 117px;
+        }
+
+        .exp {
+            display: inline-block;
+        }
+
+        .code {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .amount {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .head-page {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="head-page">
+
+                <h1>
+                    Connection fee
+                </h1>
+        </div>
+                <div class="head-text">
+
+                <p class="amount">
+                    100.00 NGN
+                </p>
+            
+        </div>
+    
+
+
+
+    <div class="form-container">
+        <form action="guest-payment-sucessful.html">
+            <label for="name">Name</label>
+            <input id="name" maxlength="20" type="text">
+
+            <label for="name">Card Number</label>
+            <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+
+            <div class="exp-code">
+                <div class="exp">
+            <label for="expirationdate">Expiration (mm/yy)</label>
+            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+
+        <div class="code">
+            <label for="securitycode">Security Code</label>
+            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+        </div>
+
+            <button type="submit">View Contact</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+
+</html>
